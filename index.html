@@ -57,5 +57,12 @@
 		<script src="bower_components/handlebars/handlebars.js"></script>
 		<script src="bower_components/director/build/director.js"></script>
 		<script src="js/app.js"></script>
+		<script>
+			;function(){
+				if(!$('#todo-list').has('li').length ){
+					 $('#main').html('Sorry')
+				}
+			}
+		</script>
 	</body>
 </html>
