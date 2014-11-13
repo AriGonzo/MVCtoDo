@@ -45,22 +45,22 @@
     * Select a specific **Task** from the **List of Tasks**
     * Update the view of specific **Task** from the **List of Tasks**
     * Update counter(s)
-  * Change status of All Tasks
-    * Update display of all Tasks in List of Tasks
-    * Update the view of the List of Tasks
+  * Change status of All **Tasks**
+    * Update display of all **Tasks** in **List of Tasks**
+    * Update the view of the **List of Tasks**
     * Update counters
-  * Read All tasks
+  * Read All **Tasks**
     * Select nav
-    * Display the view of the List of All Tasks
-  * Filter Active Tasks
+    * Display the view of the **List of All Tasks**
+  * Filter Active **Tasks**
     * Select nav
-    * Display the view of the List of Active Tasks
-  * Filter Completed Tasks
+    * Display the view of the **List of Active Tasks**
+  * Filter Completed **Tasks**
     * Select nav
-    * Display the view of the List of Completed Tasks
-  * Delete Completed Tasks
+    * Display the view of the **List of Completed Tasks**
+  * Delete Completed **Tasks**
     * Select nav
-    * Display the view of the List of Active Tasks
+    * Display the view of the **List of Active Tasks**
 
 #### Views: Display Items
 
