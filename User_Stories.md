@@ -59,4 +59,3 @@ As a group, you should have a complete set of User Stories that describe the fun
 ---
 
  
-
