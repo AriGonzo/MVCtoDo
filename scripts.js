@@ -3,7 +3,7 @@
 var $input = $('#new-todo');
 
 $input.keyup(function(e){
-  if(e.keyCode == 13) {
+  if(e.keyCode == 13)  {
     $(this).trigger("addTask");
     }
   });
@@ -23,7 +23,7 @@ $input.bind("addTask",function(){
 //Adding Counter
     $('#footer').show().append('#filters');
 
-    
+  
   }
 });
 
@@ -37,8 +37,12 @@ $input.bind("addTask",function(){
  var $complete = $('#todo-list li');
  var $toggleAll = $('#toggle-all');
 
- $toggleAll.bind('toggleComplete', function() {
-   $complete.toggleClass('completed');
+ $toggleAll.click(function() {
+   if ($('#todo-list li').hasClass('completed')) {
+     $('#todo-list li').removeClass('completed');
+   } else {
+     $('#todo-list li').addClass('completed');
+   }
  });
 
 $toggleAll.trigger('toggleComplete');
@@ -99,5 +103,5 @@ if (#new-todo.val().trim().length >= 1 && ('       '.click(function()) {
 */
 
 
-
+// $('#todo-list li').addClass('completed)
 
