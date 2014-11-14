@@ -19,6 +19,11 @@ $input.bind("addTask",function(){
     $('#main').css({display: 'block'});
     $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
     $input.val('');
+
+//Adding Counter
+    $('#footer').show().append('#filters');
+
+    
   }
 });
 
@@ -37,3 +42,62 @@ $input.bind("addTask",function(){
  });
 
 $toggleAll.trigger('toggleComplete');
+
+
+//Adding the "items left" Counter functionaliity.
+//TODO:  
+//If list item(#new-todo) length is eq to or greater (= > ) that 1 AND 
+//enter is hit (e.keyCode) update counter(     )by +1.
+
+//If 'x' (.destroy) is triggered then update counter (#todo-count) by -1.
+
+
+
+//To show footer: $('#footer').show();
+//To show text on footer: 
+/*
+$input.bind("addTask",function(){
+  if ($input.val().trim().length > 0 ){
+    $('#main').css({display: 'block'});
+    $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
+    $input.val('');
+
+//Adding the counter to increment and decrement
+    $('#footer').show();
+  }
+});
+
+
+
+/*
+
+if (#new-todo.val().trim().length >= 1 && ('       '.click(function()) {
+
+
+
+ $('#filters').val(parseInt($('#todo-count').val()) + 1);
+        $('#footer').show();
+});
+
+
+
+/*
+
+  $('#new-todo').click(function(){
+        $('#todo-count').val(parseInt($('#todo-count').val()) + 1);
+        $('#footer').show();
+    });
+
+
+    $('.destroy').click(function(){
+        if ($('#todo-count').val() != 0)
+            $('#todo-count').val(parseInt($('#todo-count').val()) - 1);
+    });
+  
+});
+
+*/
+
+
+
+
