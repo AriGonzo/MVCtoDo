@@ -74,27 +74,34 @@
 		it's not empty. If it's empty the todo should instead be destroyed. If
 		escape is pressed during the edit, the edit state should be left and any
 		changes be discarded. -->
-		<!--var editIn = "label > input";
-		$(editIn).keyup(function(e) {
-			if (e.keyCode == 13) {
-					$( editIn ).trigger('editText');
-			};
-		});
-		$( editIn ).bind('editText', function(){
-			$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
-		});-->
+
 		<script src="scripts.js"></script>
 		<script>
-		$.ajax({
-			url: "/scripts.js",
-			cache: false,
-		 });
-		  var editLabel = "#todo-list > li > label"
-				$( editLabel ).dblclick( function() {
-					$( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
-						});
+       $('#new-todo').on('addTask', function(){
+				$('#todo-list > li > label').dblclick( function() {
+					$( this ).parent().addClass('editing');
+					$( this ).replaceWith("<input type='text' class='edit' value='" + $( this ).html() + "' >")
+				});
+			});
+			var $editInput = $("input.edit");
 
+
+			$editInput.bind("editText", function(){
+				$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
+			});
+
+			$editInput.keyup(function(e) {
+				if (e.keyCode == 13) {
+						$( this ).trigger("editText");
+				};
+			});
+
+			/*$editInput.bind("editText",function(){
+				if ($editInput.val().trim().length > 0 ){
+					$(editInput).remove();
+					};
+					$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
+			});*/
 		</script>
-
 	</body>
 </html>
