@@ -79,24 +79,26 @@
 		<script>
        $('#new-todo').on('addTask', function(){
 				$('#todo-list > li > label').dblclick( function() {
+					if($( '.edit' ).parent().siblings().hasClass('editing')) {
+						$( '.edit' ).parent().siblings().removeClass('editing');
+					};
+						console.log(this);
+						/*.children().replaceWith( "<label>" + $('input.edit').val() + "</label>");*/
 					$( this ).parent().addClass('editing');
-					$( this ).replaceWith("<input type='text' class='edit' value='" + $( this ).html() + "' >")
+					$( this ).replaceWith("<input type='text' class='edit' value='" + $( this ).html() + "' >");
+					console.log(this);
 				});
 			});
-			var $editInput = $("input.edit");
 
 
-			$editInput.bind("editText", function(){
-				$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
-			});
-
-			$editInput.keyup(function(e) {
+/*
+			$('.edit').keydown(function(e) {
 				if (e.keyCode == 13) {
-						$( this ).trigger("editText");
+						$('input.edit').replaceWith( "<label>" + $('input.edit').html() + "</label>");
 				};
 			});
 
-			/*$editInput.bind("editText",function(){
+			$editInput.bind("editText",function(){
 				if ($editInput.val().trim().length > 0 ){
 					$(editInput).remove();
 					};
