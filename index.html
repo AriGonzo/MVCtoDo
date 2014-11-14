@@ -85,14 +85,15 @@
 		});-->
 		<script src="scripts.js"></script>
 		<script>
-		  $.ajax({
-			  url: "file:///Users/Logan/TheIronYard/MVCtoDo/index.html",
-			  cache: false
-			})
-			var editLabel = "#todo-list > li > label"
-			$( editLabel ).dblclick( function() {
-				$( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
-					});
+		$.ajax({
+			url: "/scripts.js",
+			cache: false,
+		 });
+		  var editLabel = "#todo-list > li > label"
+				$( editLabel ).dblclick( function() {
+					$( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
+						});
+
 		</script>
 
 	</body>
