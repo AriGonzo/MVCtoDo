@@ -7,20 +7,34 @@
 		<link rel="stylesheet" href="base.css">
 		<link rel="stylesheet" href="app.css">
 	</head>
+
 	<body>
 		<section id="todoapp">
 			<header id="header">
 				<h1>todos</h1>
-				<input id="new-todo" placeholder="What needs to be done?" autofocus>
+
+				<!-- Input for new Task -->
+				<input id="new-todo" placeholder="What needs to be done?">
+
 			</header>
+
 			<section id="main">
+
+				<!--chevron for toggle-all -->
 				<input id="toggle-all" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
+<<<<<<< HEAD
 				<ul id="todo-list">
 					<li>Homework</li>
 					<li>Walk the dogs</li>
 					<li>Double Click the things</li>
 				</ul>
+=======
+
+				<!--List of Tasks-->
+				<ul id="todo-list"></ul>
+
+>>>>>>> 7b706b2ca2534d490286e1e9eafb1118656b2c39
 			</section>
 			<footer id="footer"></footer>
 		</section>
@@ -61,6 +75,7 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="bower_components/handlebars/handlebars.js"></script>
 		<script src="bower_components/director/build/director.js"></script>
+<<<<<<< HEAD
 		<script src="js/app.js"></script>
 =======
 		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -68,5 +83,8 @@
 				$('#main').css('display')
 		</script>
 >>>>>>> 4a72729261799dbefe3d82b8f64cf283613883b5
+=======
+		<script src="scripts.js"></script>
+>>>>>>> 7b706b2ca2534d490286e1e9eafb1118656b2c39
 	</body>
 </html>
