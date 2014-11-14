@@ -13,18 +13,16 @@ As a group, you should have a complete set of User Stories that describe the fun
 * I can track important due dates.
 * I can stay out of trouble.
 * I can manage my time better.
-* I can prioritize the things I need to do.
-* I can take off things I've already done.
-* I can see all of the things I need to do.
 
 
 ----
 
-#### I can _add a **Task** to the **List of Tasks**_ to that I can _be reminded to do it_.
+#### I can _add a **Task** to the **List of Tasks**_ so that I can _be reminded to do it_.
+
 
 ----
 
-#### I can _mark an incomplete **Task** as completed_ so that I can _track what has been done_.
+#### I can _mark an incomplete **Task** as completed_ so that I can _track what has been done_
 
 * Click a button to mark the task as complete; what does that look like?
 * Can I change my mind and mark it as incomplete again?
@@ -48,108 +46,17 @@ As a group, you should have a complete set of User Stories that describe the fun
 
 ---
 
+#### I can _view a **Task** on the **List of **Tasks** so that I can _see what has been completed.
 
+---
 
+#### I can _change a **Task** on the **List of **Tasks** so that I can _prioritize my tasks.
 
+---
 
+#### I can _read a **Tasks** on the **List of **Tasks** so that I can _see the total number of tasks remaining. 
 
+---
 
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### All About MVC -- Model-View-Controller
-
-#### Models: Nouns
-
-* List of Tasks: Collection
-  * Properties:
-  * Methods:
-    * CRUD
-    * Add a Task
-    * Remove a Task
-    * Get a specific Task
-    * Change order of Tasks?
-* Task
-  * Properties:
-    * Text Description
-    * Completion Status: done or not?
-    * Parent Task?
-    * Due Date?
-    * Color / Category?
-  * Methods:
-    * Create
-    * Mark Complete
-    * Edit Text
-    * Remove / Delete Task
-    * Archive?
-
-#### Controllers: Traffic Cop
-
-* Workflows:
-  * Edit a specific **Task**:
-    * Get a specific **Task** from the **List of Tasks**
-    * Edit the **Task** (and save the changes)
-    * Display the view of the **List of Tasks**
-  * Add a new **Task**:
-    * Accept input: Text
-    * Create a **Task**
-    * Add new **Task** to **List of Tasks**
-    * Display the view of the **List of Tasks**
-
-#### Views: Display Items
-
-* List of Individual Tasks
-  * Filtered by:
-    * All Tasks
-    * Only Completed Tasks
-    * Only Uncompleted Tasks
-* Individual Task
-  * Incomplete Task
-  * Complete Task
-  * Marked for Deletion? (waste bin)
-  * Overdue Task? (past due date)
-* Add a Task
-* Edit a Task
