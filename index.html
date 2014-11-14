@@ -58,9 +58,18 @@
 		<script src="bower_components/director/build/director.js"></script>
 		<script src="js/app.js"></script> -->
 		<script>
-			$('#todo-list > li').dblclick(function(){
-				$(this)
-			})
+				  $( "#todo-list > li > label" ).dblclick( function() {
+  				  $( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
+						});
+          var editIn = "label > input";
+					$(editIn).keyup(function(e) {
+    				if (e.keyCode == 13) {
+		       		 $( editIn ).trigger('editText');
+    				};
+					});
+					$( editIn ).bind('editText', function(){
+						$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
+					});
 		</script>
 		<!--When editing mode is activated it will hide the other controls and bring
 		 forward an input that contains the todo title, which should be focused
