@@ -67,20 +67,6 @@
 		<!-- <script src="bower_components/handlebars/handlebars.js"></script>
 		<script src="bower_components/director/build/director.js"></script>
 		<script src="js/app.js"></script> -->
-		<script>
-				  $( "#todo-list > li > label" ).dblclick( function() {
-  				  $( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
-						});
-          var editIn = "label > input";
-					$(editIn).keyup(function(e) {
-    				if (e.keyCode == 13) {
-		       		 $( editIn ).trigger('editText');
-    				};
-					});
-					$( editIn ).bind('editText', function(){
-						$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
-					});
-		</script>
 		<!--When editing mode is activated it will hide the other controls and bring
 		 forward an input that contains the todo title, which should be focused
 		(.focus()). The edit should be saved on both blur and enter, and the editing
@@ -88,7 +74,26 @@
 		it's not empty. If it's empty the todo should instead be destroyed. If
 		escape is pressed during the edit, the edit state should be left and any
 		changes be discarded. -->
+		<!--var editIn = "label > input";
+		$(editIn).keyup(function(e) {
+			if (e.keyCode == 13) {
+					$( editIn ).trigger('editText');
+			};
+		});
+		$( editIn ).bind('editText', function(){
+			$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
+		});-->
 		<script src="scripts.js"></script>
+		<script>
+		  $.ajax({
+			  url: "file:///Users/Logan/TheIronYard/MVCtoDo/index.html",
+			  cache: false
+			})
+			var editLabel = "#todo-list > li > label"
+			$( editLabel ).dblclick( function() {
+				$( this ).replaceWith("<label><input type='text' value='" + $( this ).html() +"' /></label>");
+					});
+		</script>
 
 	</body>
 </html>
