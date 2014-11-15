@@ -19,9 +19,20 @@ $input.bind("addTask",function(){
     $('#main').css({display: 'block'});
     $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
     $input.val('');
-    $('#footer').show();
+
+
+//Show footer and update the "todo-count"...when newTask is executed
+    $('#footer').show(); //Show footer
+    $('#new-todo').click(function() { //Everytime new list item is executed (#new-todo)
+    $('#todo-count strong')counter++ });//Add ++1 to the counter (<strong>1</strong>)
+
+}   
+
   }
 });
+
+
+
 
 /*
 //
@@ -42,5 +53,7 @@ $input.bind("addTask",function(){
  });
 
 
-
 // $('#todo-list li').addClass('completed)
+
+
+
