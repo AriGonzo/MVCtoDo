@@ -41,6 +41,4 @@ $input.bind("addTask",function(){
    }
  });
 
-
-
 // $('#todo-list li').addClass('completed)
