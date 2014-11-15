@@ -17,9 +17,15 @@ $input.keyup(function(e){
 $input.bind("addTask",function(){
   if ($input.val().trim().length > 0 ){
     $('#main').css({display: 'block'});
-    $('#todo-list').show().append('<li><label>' + $input.val() + '</label><button class="destroy"></button></li>');
+    $('#todo-list').show().append('<li><div class="view"><label>' + $input.val() + '</label><button class="destroy"></button></div></li>');
     $input.val('');
   }
+});
+
+var $destroy = $('.destroy');
+
+$('.destroy').click(function(){
+  alert('FUCK');
 });
 
 /*
