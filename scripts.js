@@ -2,6 +2,7 @@
 
 var $input = $('#new-todo');
 
+
 $input.keyup(function(e){
   if(e.keyCode == 13)  {
     $(this).trigger("addTask");
@@ -17,11 +18,24 @@ $input.keyup(function(e){
 $input.bind("addTask",function(){
   if ($input.val().trim().length > 0 ){
     $('#main').css({display: 'block'});
-    $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
+    $('#todo-list').show()
+      .append('<li><div class="view"><input class="toggle" type="checkbox"><label>' +
+      $input.val() + '</label><button class="destroy"></button></div><input class="edit" value="' +
+      $input.val() + '" ></li>');
+
+    //Clears the input field
     $input.val('');
+
+    // Display the footer
     $('#footer').show();
+
+    // update footer new count
+    $('#todo-count strong').text($('#todo-list li').length);
+
   }
 });
+
+
 
 /*
 //
@@ -34,11 +48,43 @@ $input.bind("addTask",function(){
  var $toggleAll = $('#toggle-all');
 
  $toggleAll.click(function() {
-   if ($('#todo-list li').hasClass('completed')) {
-     $('#todo-list li').removeClass('completed');
-   } else {
+   if ($('#todo-list li').hasClass('')) {
      $('#todo-list li').addClass('completed');
+     $('.toggle').prop('checked', true);
+   } else {
+     $('.toggle').prop('checked', false);
+     $('#todo-list li').removeClass('completed');
    }
  });
 
-// $('#todo-list li').addClass('completed)
+$('#todo-list').on('click', '.toggle', function(){
+  $(this).closest('li').toggleClass('completed');
+  if($('.completed').length === $('#todo-list li').length) {
+    $('#toggle-all').prop('checked', true);
+  } else {
+    $('#toggle-all').prop('checked', false);
+  }
+});
+
+// Show All Tasks in the List of Tasks
+$('a[href="#/"]').click(function(){
+    $('#todo-list li').each(function() {
+      if($(this).hasClass('hidden')) $(this).removeClass('hidden');
+    });
+});
+
+// Show only Active Tasks in the List of Tasks
+$('a[href="#/active"]').click(function(){
+    $('#todo-list li').each(function() {
+      if($(this).hasClass('completed')) $(this).addClass('hidden');
+      if(!$(this).hasClass('completed') && $(this).hasClass('hidden')) $(this).removeClass('hidden');
+    });
+});
+
+// Show only Completed Tasks in the List of Tasks
+$('a[href="#/completed"]').click(function(){
+    $('#todo-list li').each(function() {
+      if($(this).hasClass('')) $(this).addClass('hidden');
+      if($(this).hasClass('completed hidden')) $(this).removeClass('hidden');
+    });
+});

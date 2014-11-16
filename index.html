@@ -24,26 +24,7 @@
 				<label for="toggle-all">Mark all as complete</label>
 
 				<!--List of Tasks-->
-				<ul id="todo-list">
-				<!-- These are here just to show the structure of the list items -->
-				<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-				<li class="completed">
-					<div class="view">
-						<input class="toggle" type="checkbox" checked>
-						<label>Create a TodoMVC template</label>
-						<button class="destroy"></button>
-					</div>
-					<input class="edit" value="Create a TodoMVC template">
-				</li>
-				<li>
-					<div class="view">
-						<input class="toggle" type="checkbox">
-						<label>Rule the web</label>
-						<button class="destroy"></button>
-					</div>
-					<input class="edit" value="Rule the web">
-				</li>
-			</ul>
+				<ul id="todo-list"></ul>
 		</section>
 		<!-- This footer should hidden by default and shown when there are todos -->
 	<footer id="footer">
@@ -77,5 +58,29 @@
 <script src="bower_components/todomvc-common/base.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="scripts.js"></script>
+<script>
+		$('#todo-list').on('dblclick', '.view label', function(e) {
+			$editInput = $( e.target ).closest('li').addClass('editing').find('.edit');
+			$editInput.html($('.editing label').val());
+			$editInput.focus();
+		});
+		$("#todo-list").on("keyup", ".edit", function (e) {
+			if (e.keyCode == 13) {
+				$( '.editing label' ).html($editInput.val().trim());
+				$( '.editing' ).removeClass('editing');
+				if ($editInput.val().trim().length == 0) {
+					$( e.target ).closest('li').remove();
+				}
+			}
+		});
+    $(".edit").focusout(function() {
+		    var $toDo = $('#todo-list')
+				$( '.editing label' ).html($editInput.val().trim());
+				$( '.editing' ).removeClass('editing');
+				if ($editInput.val().trim().length == 0) {
+					$( this.$toDo ).closest('li').remove();
+				}
+		});
+</script>
 </body>
 </html>
