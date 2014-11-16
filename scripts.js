@@ -48,17 +48,22 @@ $input.bind("addTask",function(){
  var $toggleAll = $('#toggle-all');
 
  $toggleAll.click(function() {
-   if ($('#todo-list li').hasClass('completed')) {
-     $('#todo-list li').removeClass('completed');
-   } else {
+   if ($('#todo-list li').hasClass('')) {
      $('#todo-list li').addClass('completed');
+     $('.toggle').prop('checked', true);
+   } else {
+     $('.toggle').prop('checked', false);
+     $('#todo-list li').removeClass('completed');
    }
  });
 
-var $toggle = $('.toggle');
-
 $('#todo-list').on('click', '.toggle', function(){
   $(this).closest('li').toggleClass('completed');
+  if($('.completed').length === $('#todo-list li').length) {
+    $('#toggle-all').prop('checked', true);
+  } else {
+    $('#toggle-all').prop('checked', false);
+  }
 });
 
 // $('#todo-list li').addClass('completed)
