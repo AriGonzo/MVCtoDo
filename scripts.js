@@ -58,5 +58,6 @@ $input.bind("addTask",function(){
       $('#toggle-all').prop('checked', false);
     }
   });
+
 });
 
