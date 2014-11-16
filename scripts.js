@@ -43,6 +43,8 @@ $input.bind("addTask",function(){
    }
  });
 
-
+/*$('#todo-list').on('click', '.toggle', function(){
+  $(this).closest('#todo-list li').toggleClass('completed');
+});*/
 
 // $('#todo-list li').addClass('completed)
