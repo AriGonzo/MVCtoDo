@@ -28,7 +28,7 @@ $input.bind("addTask",function(){
 //**temporary test alerty to ensure button binding is working (which it's not, at least for the new tasks)
 var $destroy = $('#todo-list li .destroy');
 
-$destroy.on('click', function(){
+$('#todo-list').on('click', '.destroy', function(){
   alert('waffestomp');
 });
 
