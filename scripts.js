@@ -23,9 +23,19 @@ $input.bind("addTask",function(){
   }
 });
 
+
+//clicking on the red "x" should remove the task it's on
+//**temporary test alerty to ensure button binding is working (which it's not, at least for the new tasks)
 var $destroy = $('.destroy');
 
-$destroy.click(function(){
+$destroy.on('click', function(){
+  alert('waffestomp');
+});
+
+
+//clicking 'Clear Completed' will remove all checked-off tasks
+//**temporary test alert to ensure button binding is working
+$('#clear-completed').on('click', function(e){
   alert('teabags');
 });
 
