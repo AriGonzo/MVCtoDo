@@ -86,22 +86,35 @@ escape is pressed during the edit, the edit state should be left and any
 changes be discarded. -->
 
 <script>
-	$('#new-todo').on('addTask', function(){
-		$('#todo-list > li > label').dblclick( function() {
-			if($( '.edit' ).parent().siblings().hasClass('editing')) {
-				$( '.edit' ).parent().siblings().removeClass('editing');
-			};
-				console.log(this);
+	//$('#new-todo').on('addTask', function(){
+		$('#todo-list').on('dblclick', '.view label', function(e) {
 				//.children().replaceWith( "<label>" + $('input.edit').val() + "</label>");
-			$( this ).parent().addClass('editing');
-			$( this ).replaceWith("<input type='text' class='edit' value='" + $( this ).html() + "' >");
-			console.log(this);
+			//$( this ).closest("li").addClass('editing').find(".edit label");
+			$editInput = $( e.target ).closest('li').addClass('editing').find('.edit');
+			$editInput.html($('.editing label').val());
+			$editInput.focus();
 		});
-	});
+		$("#todo-list").on("keyup", ".edit", function (e) {
+			if (e.keyCode == 13) {
+				$( '.editing label' ).html($editInput.val().trim());
+				$( '.editing' ).removeClass('editing');
+				if ($editInput.val().trim().length == 0) {
+					$( e.target ).closest('li').remove();
+				}
+			}
+		});
+    $(".edit").focusout(function() {
+			    var $toDo = $('#todo-list')
+					$( '.editing label' ).html($editInput.val().trim());
+					$( '.editing' ).removeClass('editing');
+					if ($editInput.val().trim().length == 0) {
+						$( this.$toDo ).closest('li').remove();
+					}
+				});
 
 
 
-	$('.edit').keydown(function(e) {
+	/*$('.edit').keydown(function(e) {
 		if (e.keyCode == 13) {
 				$('input.edit').replaceWith( "<label>" + $('input.edit').html() + "</label>");
 		};
@@ -112,7 +125,7 @@ changes be discarded. -->
 			$(editInput).remove();
 			};
 			$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
-	});
+	});*/
 </script>
 
 </body>
