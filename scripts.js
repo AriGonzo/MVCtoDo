@@ -1,5 +1,6 @@
 $(function() {
-  //binding the enter key to the input
+
+//binding the enter key to the input
   var $input = $('#new-todo');
   $input.keyup(function(e){
     if(e.keyCode == 13)  {
@@ -48,6 +49,7 @@ $(function() {
 // Toggle individual Tasks on/off
   $('#todo-list').on('click', '.toggle', function(){
     $(this).closest('li').toggleClass('completed');
+
     // if all individual tasks are checked off, the toggle-all icon will toggle
     if($('.completed').length === $('#todo-list li').length) {
       $('#toggle-all').prop('checked', true);
