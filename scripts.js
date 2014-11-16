@@ -28,7 +28,7 @@ $input.bind("addTask",function(){
 //**temporary test alerty to ensure button binding is working
 
 $('#todo-list').on('click', '.destroy', function(){
-  $(this).css({display: 'none'});
+  $('#todo-list li').css({display: 'none'});
 });
 
 
