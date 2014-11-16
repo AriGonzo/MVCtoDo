@@ -86,31 +86,24 @@ escape is pressed during the edit, the edit state should be left and any
 changes be discarded. -->
 
 <script>
-	//$('#new-todo').on('addTask', function(){
+
 		$('#todo-list').on('dblclick', '.view label', function(e) {
-				//.children().replaceWith( "<label>" + $('input.edit').val() + "</label>");
-			//$( this ).closest("li").addClass('editing').find(".edit label");
+
+
 			$editInput = $( e.target ).closest('li').addClass('editing').find('.edit');
 			$editInput.html($('.editing label').val());
 			$editInput.focus();
 		});
+
 		$("#todo-list").on("keyup", ".edit", function (e) {
 			if (e.keyCode == 13) {
 				$(e.target).blur();
 			}
 			if (e.keyCode == 27) {
 				$(e.target).val($('.editing label').html()).closest('li').removeClass('editing');
-				$
-
-			  //$(e.target).html($('.editing label').html());
 			}
-				/*$( '.editing label' ).html($editInput.val().trim());
-				$( '.editing' ).removeClass('editing');
-				if ($editInput.val().trim().length == 0) {
-					$( this ).closest('li').remove();
-				}*/
-
 		});
+
     $("#todo-list").on("focusout", ".edit", function(e) {
 			    var $toDo = $('#todo-list')
 					$( '.editing label' ).html($editInput.val().trim());
@@ -118,22 +111,12 @@ changes be discarded. -->
 					if ($(this).val().trim().length == 0) {
 						$( this ).closest('li').remove();
 					}
+					if ($("#todo-list").children("li").length == 0) {
+						$("#main").css("display" , "none");
+						$("#footer").css("display" , "none");
+					}
 				});
 
-
-
-	/*$('.edit').keydown(function(e) {
-		if (e.keyCode == 13) {
-				$('input.edit').replaceWith( "<label>" + $('input.edit').html() + "</label>");
-		};
-	});
-
-	$editInput.bind("editText",function(){
-		if ($editInput.val().trim().length > 0 ){
-			$(editInput).remove();
-			};
-			$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
-	});*/
 </script>
 
 </body>

@@ -35,7 +35,7 @@ $input.bind("addTask",function(){
  var $complete = $('#todo-list li');
  var $toggleAll = $('#toggle-all');
 
- $toggleAll.click(function() {
+ $toggleAll.on('click', function() {
    if ($('#todo-list li').hasClass('completed')) {
      $('#todo-list li').removeClass('completed');
    } else {
@@ -43,8 +43,8 @@ $input.bind("addTask",function(){
    }
  });
 
-/*$('#todo-list').on('click', '.toggle', function(){
+$('#todo-list').on('click', '.toggle', function(){
   $(this).closest('#todo-list li').toggleClass('completed');
-});*/
+});
 
 // $('#todo-list li').addClass('completed)
