@@ -25,11 +25,10 @@ $input.bind("addTask",function(){
 
 
 //clicking on the red "x" should remove the task it's on
-//**temporary test alerty to ensure button binding is working (which it's not, at least for the new tasks)
-var $destroy = $('#todo-list li .destroy');
+//**temporary test alerty to ensure button binding is working
 
 $('#todo-list').on('click', '.destroy', function(){
-  alert('waffestomp');
+  $(this).css({display: 'none'});
 });
 
 
