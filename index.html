@@ -74,8 +74,59 @@
 	<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 	</footer>
 <!-- Scripts here. Don't remove this ↓ -->
-	<script src="bower_components/todomvc-common/base.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="scripts.js"></script>
+<script src="bower_components/todomvc-common/base.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="scripts.js"></script>
+<!--When editing mode is activated it will hide the other controls and bring
+forward an input that contains the todo title, which should be focused
+(.focus()). The edit should be saved on both blur and enter, and the editing
+class should be removed. Make sure to .trim() the input and then check that
+it's not empty. If it's empty the todo should instead be destroyed. If
+escape is pressed during the edit, the edit state should be left and any
+changes be discarded. -->
+
+<script>
+	//$('#new-todo').on('addTask', function(){
+		$('#todo-list').on('dblclick', '.view label', function(e) {
+				//.children().replaceWith( "<label>" + $('input.edit').val() + "</label>");
+			//$( this ).closest("li").addClass('editing').find(".edit label");
+			$editInput = $( e.target ).closest('li').addClass('editing').find('.edit');
+			$editInput.html($('.editing label').val());
+			$editInput.focus();
+		});
+		$("#todo-list").on("keyup", ".edit", function (e) {
+			if (e.keyCode == 13) {
+				$( '.editing label' ).html($editInput.val().trim());
+				$( '.editing' ).removeClass('editing');
+				if ($editInput.val().trim().length == 0) {
+					$( e.target ).closest('li').remove();
+				}
+			}
+		});
+    $(".edit").focusout(function() {
+			    var $toDo = $('#todo-list')
+					$( '.editing label' ).html($editInput.val().trim());
+					$( '.editing' ).removeClass('editing');
+					if ($editInput.val().trim().length == 0) {
+						$( this.$toDo ).closest('li').remove();
+					}
+				});
+
+
+
+	/*$('.edit').keydown(function(e) {
+		if (e.keyCode == 13) {
+				$('input.edit').replaceWith( "<label>" + $('input.edit').html() + "</label>");
+		};
+	});
+
+	$editInput.bind("editText",function(){
+		if ($editInput.val().trim().length > 0 ){
+			$(editInput).remove();
+			};
+			$( this ).replaceWith( "<label>" + $( this ).html() + "</label>" );
+	});*/
+</script>
+
 	</body>
 </html>

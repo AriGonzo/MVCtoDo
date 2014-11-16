@@ -17,11 +17,16 @@ $input.keyup(function(e){
 $input.bind("addTask",function(){
   if ($input.val().trim().length > 0 ){
     $('#main').css({display: 'block'});
-    $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
+    $('#todo-list').show()
+      .append('<li><div class="view"><input class="toggle" type="checkbox"><label>' +
+      $input.val() + '</label><button class="destroy"></button></div><input class="edit" value="' +
+      $input.val() + '" ></li>');
     $input.val('');
     $('#footer').show();
   }
 });
+
+
 
 /*
 //
@@ -41,6 +46,9 @@ $input.bind("addTask",function(){
    }
  });
 
+$('.toggle').on('click', function(){
+  $(this).closest('#todo-list li').toggleClass('completed');
+});
 
 
 // $('#todo-list li').addClass('completed)
