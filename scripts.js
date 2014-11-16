@@ -19,6 +19,7 @@ $input.bind("addTask",function(){
     $('#main').css({display: 'block'});
     $('#todo-list').show().append('<li><div class="view"><label>' + $input.val() + '</label><button class="destroy"></button></div></li>');
     $input.val('');
+    $('#footer').show();
   }
 });
 
