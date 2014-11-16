@@ -103,8 +103,8 @@ changes be discarded. -->
 				}
 			}
 		});
-    $(".edit").focusout(function() {
-			    var $toDo = $('#todo-list')
+		$(".edit").focusout(function() {
+					var $toDo = $('#todo-list')
 					$( '.editing label' ).html($editInput.val().trim());
 					$( '.editing' ).removeClass('editing');
 					if ($editInput.val().trim().length == 0) {
