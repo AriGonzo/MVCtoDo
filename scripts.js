@@ -36,7 +36,6 @@ $input.bind("addTask",function(){
 });
 
 
-
 /*
 //
 // TODO: Add the :before icon button when creating the <li>
