@@ -2,6 +2,7 @@
 
 var $input = $('#new-todo');
 
+
 $input.keyup(function(e){
   if(e.keyCode == 13)  {
     $(this).trigger("addTask");
@@ -17,20 +18,22 @@ $input.keyup(function(e){
 $input.bind("addTask",function(){
   if ($input.val().trim().length > 0 ){
     $('#main').css({display: 'block'});
-    $('#todo-list').show().append('<li><label>' + $input.val() + '</label></li>');
+    $('#todo-list').show()
+      .append('<li><div class="view"><input class="toggle" type="checkbox"><label>' +
+      $input.val() + '</label><button class="destroy"></button></div><input class="edit" value="' +
+      $input.val() + '" ></li>');
+
+    //Clears the input field
     $input.val('');
 
+    // Display the footer
+    $('#footer').show();
 
-//Show footer and update the "todo-count"...when newTask is executed
-    $('#footer').show(); //Show footer
-    $('#new-todo').click(function() { //Everytime new list item is executed (#new-todo)
-    $('#todo-count strong')counter++ });//Add ++1 to the counter (<strong>1</strong>)
-
-}   
+    // update footer new count ++1
+    $('#todo-count strong').text($('#todo-list li').length);
 
   }
 });
-
 
 
 
@@ -52,8 +55,10 @@ $input.bind("addTask",function(){
    }
  });
 
+var $toggle = $('.toggle');
+
+$('#todo-list').on('click', '.toggle', function(){
+  $(this).closest('li').toggleClass('completed');
+});
 
 // $('#todo-list li').addClass('completed)
-
-
-
