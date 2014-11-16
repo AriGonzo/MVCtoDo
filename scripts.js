@@ -24,8 +24,8 @@ $input.bind("addTask",function(){
 
 var $destroy = $('.destroy');
 
-$('li .view').on('click', function(){
-  alert('FUCK');
+$destroy.click(function(){
+  alert('teabags');
 });
 
 /*
