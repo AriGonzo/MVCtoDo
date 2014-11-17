@@ -90,6 +90,7 @@ $(function() {
 
     if($('#todo-list li').length===0){
       $('#footer').hide();
+      $('#main').hide();
     }
 
   });
@@ -107,6 +108,7 @@ $(function() {
 
     if($('#todo-list li').length===0){
       $('#footer').hide();
+      $('#main').hide();
     }
 
   });
