@@ -40,11 +40,13 @@ $(function() {
      if ($('#todo-list li').hasClass('')) {
        $('#todo-list li').addClass('completed');
        $('.toggle').prop('checked', true);
+       $('#clear-completed').show();
        $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
 
      } else {
        $('.toggle').prop('checked', false);
        $('#todo-list li').removeClass('completed');
+       $('#clear-completed').hide();
        $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
 
      }
@@ -53,8 +55,13 @@ $(function() {
 // Toggle individual Tasks on/off
   $('#todo-list').on('click', '.toggle', function(){
     $(this).closest('li').toggleClass('completed');
-    $('#clear-completed').show();
-    $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+
+    //will start the clear completed counter once a task has been marked as complete
+    $('#clear-completed').show().html('Clear Completed (' + $('.completed').length + ')');
+
+    if(('.completed').length === 0) {
+      $('#clear-completed').hide();
+    }
 
 
     // if all individual tasks are checked off, the toggle-all icon will toggle
@@ -64,28 +71,32 @@ $(function() {
       $('#toggle-all').prop('checked', false);
       $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
     }
+
   });
 
   //clicking on the red "x" should remove the corresponding task item
   //calls the function destroyTask
   $('#todo-list').on('click', '.destroy', function(){
     destroyTask($(this));
-    $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+    $('#clear-completed').show().html('Clear Completed (' + $('.completed').length + ')');
+
 
   });
 
   // functionality of the destroy button
   var destroyTask = function(destroyButton){
-    destroyButton.parent().remove();
+    destroyButton.parent().parent().removeClass('.completed').remove();
   };
 
   //clicking 'Clear Completed' will remove all checked-off tasks
   $('#clear-completed').on('click', function(){
     $('#todo-list li').filter('.completed').remove();
     $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+    $('#clear-completed').hide();
 
 
   });
+
 
 
 });
