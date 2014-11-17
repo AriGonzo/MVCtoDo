@@ -49,6 +49,7 @@ $(function() {
 // Toggle individual Tasks on/off
   $('#todo-list').on('click', '.toggle', function(){
     $(this).closest('li').toggleClass('completed');
+    $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
 
     // if all individual tasks are checked off, the toggle-all icon will toggle
     if($('.completed').length === $('#todo-list li').length) {
@@ -62,6 +63,8 @@ $(function() {
   //calls the function destroyTask
   $('#todo-list').on('click', '.destroy', function(){
     destroyTask($(this));
+    $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+
   });
 
   // functionality of the destroy button
@@ -72,6 +75,7 @@ $(function() {
   //clicking 'Clear Completed' will remove all checked-off tasks
   $('#clear-completed').on('click', function(){
     $('#todo-list li').filter('.completed').remove();
+    $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
   });
 
 
