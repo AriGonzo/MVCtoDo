@@ -67,6 +67,7 @@ $('a[href="#/"]').click(function(event){
       if($(this).hasClass('hidden')) $(this).removeClass('hidden');
     });
     highlightTab($(this));
+    return false;
 });
 
 // Show only Active Tasks in the List of Tasks
@@ -76,6 +77,7 @@ $('a[href="#/active"]').click(function(event){
       if(!$(this).hasClass('completed') && $(this).hasClass('hidden')) $(this).removeClass('hidden');
     });
     highlightTab($(this));
+    return false;
 });
 
 // Show only Completed Tasks in the List of Tasks
@@ -85,6 +87,7 @@ $('a[href="#/completed"]').click(function(event){
       if($(this).hasClass('completed hidden')) $(this).removeClass('hidden');
     });
     highlightTab($(this));
+    return false;
 });
 
 function highlightTab(element){
@@ -96,3 +99,37 @@ function highlightTab(element){
     }
   });
 }
+
+// Double Click to bring up the edit field for a list item label
+$('#todo-list').on('dblclick', '.view label', function(e) {
+  $editInput = $( e.target ).closest('li').addClass('editing').find('.edit');
+  $editInput.html($('.editing label').val());
+  $editInput.focus();
+});
+
+//On Enter remove the edit field and replace with the edited label
+$("#todo-list").on("keyup", ".edit", function (e) {
+  if (e.keyCode == 13) {
+    $(e.target).blur();
+  }
+//On Escape, ignore all edits that have occured and replace the value back to the state prior to editing
+  if (e.keyCode == 27) {
+    $(e.target).val($('.editing label').html()).closest('li').removeClass('editing');
+  }
+});
+
+//When the item being edited loses focus remove edit field and display the edited label
+$("#todo-list").on("focusout", ".edit", function(e) {
+      var $toDo = $('#todo-list')
+      $( '.editing label' ).html($editInput.val().trim());
+      $( '.editing' ).removeClass('editing');
+      if ($(this).val().trim().length == 0) {
+        $( this ).closest('li').remove();
+      }
+
+//If there are no items in the list add display: none to both #main and #footer
+      if ($("#todo-list").children("li").length == 0) {
+        $("#main").css("display" , "none");
+        $("#footer").css("display" , "none");
+      }
+    });
