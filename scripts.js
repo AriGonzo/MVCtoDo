@@ -50,12 +50,14 @@ $(function() {
   $('#todo-list').on('click', '.toggle', function(){
     $(this).closest('li').toggleClass('completed');
     $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+    $('#clear-completed').show();
 
     // if all individual tasks are checked off, the toggle-all icon will toggle
     if($('.completed').length === $('#todo-list li').length) {
       $('#toggle-all').prop('checked', true);
     } else {
       $('#toggle-all').prop('checked', false);
+      $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
     }
   });
 
@@ -76,6 +78,8 @@ $(function() {
   $('#clear-completed').on('click', function(){
     $('#todo-list li').filter('.completed').remove();
     $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
+
+
   });
 
 
