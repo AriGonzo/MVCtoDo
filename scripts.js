@@ -79,7 +79,9 @@ $(function() {
   $('#todo-list').on('click', '.destroy', function(){
     destroyTask($(this));
     $('#clear-completed').show().html('Clear Completed (' + $('.completed').length + ')');
-
+    if($('.completed').length===0){
+      $('#clear-completed').hide();
+      }
 
   });
 
