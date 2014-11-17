@@ -28,7 +28,7 @@ $(function() {
       $('#footer').show();
 
       // update footer new count
-      $('#todo-count strong').text($('#todo-list li').length);
+      $('#todo-count strong').text($('#todo-list li').length - $('.completed').length);
 
     }
   });
