@@ -58,17 +58,18 @@ $(function() {
     }
   });
 
-  //clicking on the red "x" should remove the task it's on
-  //**temporary test alerty to ensure button binding is working
-
+  //clicking on the red "x" should remove the corresponding task item
+  //calls the function destroyTask
   $('#todo-list').on('click', '.destroy', function(){
-    $('.destroy').remove();
+    destroyTask($(this));
   });
 
+  // functionality of the destroy button
+  var destroyTask = function(destroyButton){
+    destroyButton.parent().remove();
+  };
 
   //clicking 'Clear Completed' will remove all checked-off tasks
-  //**temporary test alert to ensure button binding is working
-
   $('#clear-completed').on('click', function(){
     $('#todo-list li').filter('.completed').remove();
   });
