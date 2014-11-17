@@ -54,7 +54,7 @@ As a group, you should have a complete set of User Stories that describe the fun
 
 ---
 
-#### I can _read a **Tasks** on the **List of **Tasks** so that I can _see the total number of tasks remaining. 
+#### I can _read a **Tasks** on the **List of **Tasks** so that I can _see the total number of tasks remaining.
 
 ---
 

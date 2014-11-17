@@ -4,10 +4,10 @@ MVCtoDo
 #Project BreakDown
 
 1. @LoganArnett @rgcoders - [No Todos]
-(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#no-todos) 
+(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#no-todos)
 
 2. @phillycc - [New ToDo]
-(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#new-todo) 
+(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#new-todo)
 
 3. @AriGonzo - [Mark all complete and Individual complete]
 (https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#mark-all-as-complete)
@@ -16,7 +16,7 @@ MVCtoDo
 (https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#editing)  
 
 5. @kimkvn - [All things destroy]
-(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#clear-completed-button) 
+(https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#clear-completed-button)
 
 6. @mema82 - [Non-Tech Docs for User Experience, Non-Tech Docs for User Interaction and Counter]
 (https://github.com/AriGonzo/MVCtoDo/blob/development/app-spec.md#counter)
@@ -76,19 +76,3 @@ MVCtoDo
 	* Clear completed (#) (anchor link)(stores the number of  completed list items)
 
 8. When clicked “Clear Completed” deletes all completed items from list and is no longer visible. This button is only visible when at least One item in list is completed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
