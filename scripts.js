@@ -88,6 +88,10 @@ $(function() {
       $('#clear-completed').hide();
       }
 
+    if($('#todo-list li').length===0){
+      $('#footer').hide();
+    }
+
   });
 
   // functionality of the destroy button
@@ -101,6 +105,9 @@ $(function() {
     $('#clear-completed').html('Clear Completed (' + $('.completed').length + ')');
     $('#clear-completed').hide();
 
+    if($('#todo-list li').length===0){
+      $('#footer').hide();
+    }
 
   });
 
