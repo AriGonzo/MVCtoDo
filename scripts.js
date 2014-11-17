@@ -67,24 +67,38 @@ $('#todo-list').on('click', '.toggle', function(){
 });
 
 // Show All Tasks in the List of Tasks
-$('a[href="#/"]').click(function(){
+$('a[href="#/"]').click(function(event){
+    $(this).addClass('selected');
     $('#todo-list li').each(function() {
       if($(this).hasClass('hidden')) $(this).removeClass('hidden');
     });
+    highlightTab($(this));
 });
 
 // Show only Active Tasks in the List of Tasks
-$('a[href="#/active"]').click(function(){
+$('a[href="#/active"]').click(function(event){
     $('#todo-list li').each(function() {
       if($(this).hasClass('completed')) $(this).addClass('hidden');
       if(!$(this).hasClass('completed') && $(this).hasClass('hidden')) $(this).removeClass('hidden');
     });
+    highlightTab($(this));
 });
 
 // Show only Completed Tasks in the List of Tasks
-$('a[href="#/completed"]').click(function(){
+$('a[href="#/completed"]').click(function(event){
     $('#todo-list li').each(function() {
       if($(this).hasClass('')) $(this).addClass('hidden');
       if($(this).hasClass('completed hidden')) $(this).removeClass('hidden');
     });
+    highlightTab($(this));
 });
+
+function highlightTab(element){
+  $('#filters').find('li a').each(function(){
+    if($(this).attr('href')==element.attr('href')){
+      if(!$(this).hasClass('selected')) $(this).addClass('selected');
+    } else {
+      $(this).removeClass('selected');
+    }
+  });
+}
