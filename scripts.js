@@ -29,39 +29,6 @@ $(function() {
 
       // update footer new count
       $('#todo-count strong').text($('#todo-list li').length);
-<<<<<<< HEAD
-
-    }
-  });
-
-// Toggling all of the Tasks on/off
-   var $complete = $('#todo-list li');
-   var $toggleAll = $('#toggle-all');
-   $toggleAll.click(function() {
-     if ($('#todo-list li').hasClass('')) {
-       $('#todo-list li').addClass('completed');
-       $('.toggle').prop('checked', true);
-     } else {
-       $('.toggle').prop('checked', false);
-       $('#todo-list li').removeClass('completed');
-     }
-   });
-
-// Toggle individual Tasks on/off
-  $('#todo-list').on('click', '.toggle', function(){
-    $(this).closest('li').toggleClass('completed');
-
-    // if all individual tasks are checked off, the toggle-all icon will toggle
-    if($('.completed').length === $('#todo-list li').length) {
-      $('#toggle-all').prop('checked', true);
-    } else {
-      $('#toggle-all').prop('checked', false);
-    }
-  });
-
-});
-
-=======
 
     }
   });
