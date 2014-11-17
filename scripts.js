@@ -1,4 +1,5 @@
 $(function() {
+
 //binding the enter key to the input
   var $input = $('#new-todo');
   $input.keyup(function(e){
@@ -8,52 +9,11 @@ $(function() {
     });
 
 /* ensure there is more than whitespace in the input field (line 17)
-
 // If yes, then
 // display the main section
 // add the input field value to the list item
 // clear the input value
 */
-$input.bind("addTask",function(){
-  if ($input.val().trim().length > 0 ){
-    $('#main').css({display: 'block'});
-    $('#todo-list').show().append('<li><div class="view"><label>' + $input.val() + '</label><button class="destroy"></button></div></li>');
-    $input.val('');
-    $('#footer').show();
-  }
-});
-
-
-//clicking on the red "x" should remove the task it's on
-//**temporary test alerty to ensure button binding is working
-
-$('#todo-list').on('click', '.destroy', function(){
-  $('#todo-list li').css({display: 'none'});
-});
-
-
-//clicking 'Clear Completed' will remove all checked-off tasks
-//**temporary test alert to ensure button binding is working
-$('#clear-completed').on('click', function(e){
-  alert('teabags');
-});
-
-/*
-//
-// TODO: Add the :before icon button when creating the <li>
-//       Create the click functionality for the button to fire an event
-//       #todo-list > li should be listening for an event to fire and toggle class
-//       #toggle-all icon needs click functionality to toggle class of all <li>
-*/
- var $complete = $('#todo-list li');
- var $toggleAll = $('#toggle-all');
-
- $toggleAll.bind('toggleComplete', function() {
-   $complete.toggleClass('completed');
- });
-
-$toggleAll.trigger('toggleComplete');
-
   $input.bind("addTask",function(){
     if ($input.val().trim().length > 0 ){
       $('#main').css({display: 'block'});
@@ -74,6 +34,8 @@ $toggleAll.trigger('toggleComplete');
   });
 
 // Toggling all of the Tasks on/off
+   var $complete = $('#todo-list li');
+   var $toggleAll = $('#toggle-all');
    $toggleAll.click(function() {
      if ($('#todo-list li').hasClass('')) {
        $('#todo-list li').addClass('completed');
@@ -95,5 +57,21 @@ $toggleAll.trigger('toggleComplete');
       $('#toggle-all').prop('checked', false);
     }
   });
+
+  //clicking on the red "x" should remove the task it's on
+  //**temporary test alerty to ensure button binding is working
+
+  $('#todo-list').on('click', '.destroy', function(){
+    $('.destroy').remove();
+  });
+
+
+  //clicking 'Clear Completed' will remove all checked-off tasks
+  //**temporary test alert to ensure button binding is working
+
+  $('#clear-completed').on('click', function(){
+    $('#todo-list li').filter('.completed').remove();
+  });
+
 
 });
