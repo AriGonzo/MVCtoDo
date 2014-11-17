@@ -40,15 +40,18 @@ $(function() {
      if ($('#todo-list li').hasClass('')) {
        $('#todo-list li').addClass('completed');
        $('.toggle').prop('checked', true);
+       $('#todo-count strong').text($('#todo-list li').length - $('.completed').length);
      } else {
        $('.toggle').prop('checked', false);
        $('#todo-list li').removeClass('completed');
+       $('#todo-count strong').text($('#todo-list li').length - $('.completed').length);
      }
    });
 
 // Toggle individual Tasks on/off
   $('#todo-list').on('click', '.toggle', function(){
     $(this).closest('li').toggleClass('completed');
+    $('#todo-count strong').text($('#todo-list li').length - $('.completed').length);
 
     // if all individual tasks are checked off, the toggle-all icon will toggle
     if($('.completed').length === $('#todo-list li').length) {
